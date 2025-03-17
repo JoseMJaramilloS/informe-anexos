@@ -1,4 +1,4 @@
-# informe-anexos
+# Anexos
 Anexos para el informe final del trabajo de grado "Implementación de cluster HPC utilizando single-board computers"
 
 ## Índice de Anexos
