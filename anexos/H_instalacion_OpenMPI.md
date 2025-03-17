@@ -95,4 +95,4 @@ cp /export/jmjarami/openmpi_5.0.5_arm64.deb .
 sudo dpkg -i openmpi_5.0.5_arm64.deb
 ```
 
-Recordar [actualizar las variables de entorno](https://github.com/JoseMJaramilloS/informe-anexos/new/main/anexos#paso-5-actualizar-las-variables-de-entorno) con el paso 5.
+Recordar actualizar las variables de entorno con el paso 5.
