@@ -353,11 +353,19 @@ int main(int argc, char **argv)
     MPI_Barrier(MPI_COMM_WORLD);
     start_time = MPI_Wtime();
 
+    // Count 2 as prime in process 0 (if within limit)
+    if (rank == 0 && UPPER_LIMIT >= 2)
+        local_primes++;
+
     // Work division
     long long start = (UPPER_LIMIT / size) * rank + (rank == 0 ? 2 : 1);
     long long end = (UPPER_LIMIT / size) * (rank + 1);
-    if (rank == size - 1) 
+    if (rank == size - 1)
         end = UPPER_LIMIT; // Ensuring full coverage up to the exact limit
+
+    // Adjust start to skip 2 (process only odds)
+    if (start <= 2)
+        start = 3;
 
     // Ensure only odd numbers are processed (except 2)
     if (start % 2 == 0)
@@ -388,6 +396,7 @@ int main(int argc, char **argv)
     MPI_Finalize();
     return 0;
 }
+
 
 ```
 
