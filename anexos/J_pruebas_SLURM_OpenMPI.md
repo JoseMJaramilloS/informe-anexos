@@ -483,7 +483,7 @@ export OMPI_MCA_btl_tcp_if_include=eth0
 srun --mpi=pmix ./primes_mpi
 ```
 
-Usando este ultimo script se lanza el trabajo para encontrar los números primos hasta 1.000.000 dando como resultado `78497` numeros primos y variando el numero de procesos se obtiene la siguiente tabla:
+Usando este ultimo script se lanza el trabajo para encontrar los números primos hasta 1.000.000 dando como resultado `78498` numeros primos y variando el numero de procesos se obtiene la siguiente tabla:
 
 | Numero de nodos | Numero de procesos | Tiempo de ejecucion (s) |
 | --- | --- | --- |
