@@ -474,38 +474,53 @@ OMPI_MCA_btl_tcp_if_exclude=lo srun -n 4 ./tu_programa
 OMPI_MCA_btl_tcp_if_include=eth0 srun -n 4 ./tu_programa
 ```
 
-Otra forma, tal vez la recomendada, es usar el script de `sbatch`
+Otra forma, tal vez la más recomendada, es incluir este enfoque directamente en el script de `sbatch`. En este caso, también se define una función para realizar múltiples ejecuciones, variando la carga de trabajo y el número de procesos.
+
+Además, se añade `2>/dev/null` en el comando `srun`, ya que existe un mensaje de error inofensivo pero molesto relacionado con el servidor X, que genera la salida "No protocol specified" por cada proceso.
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=mpi_primes       # Nombre del job
-#SBATCH --nodes=2                   # Número de nodos a usar
-#SBATCH --ntasks=8                  # Numero total de procesos
-#SBATCH --time=00:05:00             # Tiempo máximo de ejecución (HH:MM:SS)
+#SBATCH --job-name=mpi_primes     # Nombre del job
+#SBATCH --nodes=10                 # Número de nodos a usar
+#SBATCH --ntasks=40                # Numero total de procesos
+#SBATCH --time=00:05:00           # Tiempo máximo de ejecución (HH:MM:SS)
 #SBATCH --output=mpi_primes_%j.log  # Archivo de salida (usa %j para el JobID)
 #SBATCH --partition=nano
 
 # Se inlcuye las interfaces a usar
 export OMPI_MCA_btl_tcp_if_include=eth0
 
-# Ejecuta el programa con srun, que se integra con SLURM
-srun --mpi=pmix ./primes_mpi
+# Función para ejecutar srun e imprimir la configuración
+function run_srun {
+    local nodos=$1
+    local procesos=$2
+    echo "Ejecutando srun con ${nodos} nodo(s) y ${procesos} proceso(s)"
+    srun -N${nodos} -n${procesos} --mpi=pmix ./primes_mpi 2>/dev/null
+    echo "-------------------------------------------------------------"
+}
+
+# Ejecuta diferentes combinaciones del programa con srun
+run_srun 1 1
+run_srun 1 2
+run_srun 1 4
+run_srun 2 8
+run_srun 4 16
+run_srun 6 24
+run_srun 8 32
+run_srun 10 40
 ```
 
-Usando este ultimo script se lanza el trabajo para encontrar los números primos hasta 1.000.000 dando como resultado `78498` numeros primos y variando el numero de procesos se obtiene la siguiente tabla:
+Ejemplo: con este último script, se lanza el trabajo para encontrar los números primos hasta 1,000,000, obteniendo como resultado `78,498` números primos. A continuación, se muestra la tabla con los tiempos obtenidos para distintas combinaciones de carga y número de procesos:
 
-| Numero de nodos | Numero de procesos | Tiempo de ejecucion (s) |
+| Nodos | Procesos | Tiempo (s) |
 | --- | --- | --- |
-| 1 | 1 | 0.19162752 |
-| 1 | 2 | 0.11793217 |
-| 1 | 4 | 0.06269243 |
-| 2 | 8 | 0.03239735 |
-| 4 | 16 | 0.01658885 |
-| 5 | 20 | 0.02238435 |
-| 6 | 24 | 0.02037343  |
-| 7 | 28 | 0.01808463 |
-| 8 | 32 | 0.01279805  |
-| 9 | 36 | 0.01856432  |
-| 10 | 40 | 0.01767969 |
+| 1 | 1 | 0.19233150 |
+| 1 | 2 | 0.11821671 |
+| 1 | 4 | 0.06264561 |
+| 2 | 8 | 0.03209381 |
+| 4 | 16 | 0.01699186 |
+| 6 | 24 | 0.02006463 |
+| 8 | 32 | 0.00892506 |
+| 10 | 40 | 0.01602835 |
 
-Los resultados finales pueden variar respecto a estos valores.
+Esta es sólo una prueba. Los resultados finales pueden variar respecto a estos valores.
