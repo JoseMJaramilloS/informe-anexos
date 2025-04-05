@@ -4,8 +4,8 @@ Anexos para el informe final del trabajo de grado "Implementación de cluster HP
 ## Índice de Anexos
 1. [Anexo A: Sistema Operativo y modo headless](anexos/A_sistema_operativo.md)
 2. [Anexo B: Configuración de red](anexos/B_configuracion_red.md)
-3. [Anexo C:](anexos/C.md)
-4. [Anexo D:](anexos/D.md)
+3. [Anexo C: Sistema de archivos y almacenamiento compartido](anexos/C_NAS_NFS.md)
+4. [Anexo D: Configuración de cliente LDAP](anexos/D_ldap.md)
 5. [Anexo E: Instalación Munge](anexos/E_instalacion_munge.md)
 6. [Anexo F: Instalación PMIx](anexos/F_instalacion_PMIx.md)
 7. [Anexo G: Instalación SLURM](anexos/G_instalacion_SLURM.md)
