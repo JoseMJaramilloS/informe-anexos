@@ -49,7 +49,7 @@ La carpeta `munge` se puede borrar después de la instalación.
 
 ## Generación y distribución de Munge key
 
-1. En el **head node o nodo principal**, generar la clave:
+1. En el **head node o nodo principal**, se debe generar la clave (omitir si la clave ya fue generada por el administrador del nodo principal, en este caso esta disponible [acá](https://drive.google.com/file/d/1snz6uBv4I_Kv2ACihqnD0V47NWBMOPtP/view?usp=sharing)):
     
     ```bash
     sudo create-munge-key
