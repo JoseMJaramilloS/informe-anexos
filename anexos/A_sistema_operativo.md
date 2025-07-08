@@ -27,11 +27,13 @@ Para instalar el sistema operativo en cada **Jetson Nano**, la imagen de disco s
 
 ### **Pasos básicos:**
 
-1. **Descargar** la imagen desde el repositorio.
-2. **Instalar** Raspberry Pi Imager desde [raspberrypi.com/software](https://www.raspberrypi.com/software/).
-3. **Seleccionar** la opción *"Use custom"* y cargar la imagen descargada.
-4. **Elegir** la tarjeta microSD como destino y escribir la imagen.
-5. **Expulsar** la microSD e insertarla en la Jetson Nano.
+1. **Descargar** la imagen desde el repositorio.
+2. **Instalar** Raspberry Pi Imager desde [raspberrypi.com/software](https://www.raspberrypi.com/software/).
+3. Iniciar Raspberry Pi Imager
+4. En opción **Dispositivo Raspberry Pi**, seleccionar *“No filtering”*
+5. En opción **Sistema Operativo**, seleccionar *"Use custom"*  o *“Usar personalizado”* y cargar la imagen descargada.
+6. En opción **Almacenamiento, e**legir la tarjeta microSD y escribir la imagen.
+7. **Expulsar** la microSD e insertarla en la Jetson Nano.
 
 El sistema viene preconfigurado con el siguiente acceso:
 
