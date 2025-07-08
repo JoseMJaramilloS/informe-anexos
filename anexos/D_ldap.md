@@ -48,7 +48,7 @@ sudo chmod 600 /etc/sssd/sssd.conf
 
 ### 4. Instalación del certificado
 
-Se copió el certificado proporcionado por el administrador del servidor a la ruta correspondiente en cada nodo:
+Se copió el certificado proporcionado por el administrador del servidor (disponible [acá](https://drive.google.com/file/d/1_4zF0W5NmCqJH4WwK250wzMQ500RxTtW/view?usp=drive_link)) a la ruta correspondiente en cada nodo:
 
 ```bash
 sudo nano /usr/local/share/ca-certificates/udea.crt
