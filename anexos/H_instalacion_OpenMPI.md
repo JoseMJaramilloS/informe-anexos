@@ -66,6 +66,7 @@ Instalar paquete
 ```bash
 sudo dpkg -i openmpi_5.0.5_arm64.deb
 ```
+El paquete puede ser descargado desde [acá](https://drive.google.com/file/d/17tHsSZZYbKYlwdVkzxpU6Z3lTzC7Y5px/view?usp=sharing)
 
 ## Paso 5: Actualizar las Variables de Entorno
 
