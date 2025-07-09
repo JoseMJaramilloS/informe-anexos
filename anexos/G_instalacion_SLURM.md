@@ -88,7 +88,7 @@ El siguiente comando empaqueta la instalación de SLURM ya realizada:
     ```bash
     cp slurm_23.11.10_arm64.deb /export/jmjarami/
     ```
-    
+El paquete puede ser descargado desde [acá](https://drive.google.com/file/d/17krEbiMWuMaofz0TFCG2y17nHcrzLmpb/view?usp=sharing)
 
 ---
 
