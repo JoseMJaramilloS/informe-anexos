@@ -181,6 +181,7 @@ SlurmdLogFile=/var/log/slurmd.log
 NodeName=node[1-10] CPUs=4 State=UNKNOWN
 PartitionName=nano Nodes=ALL Default=YES MaxTime=INFINITE State=UP
 ```
+Tambien disponible [acá](https://docs.google.com/file/d/1Sm4FqylmkgBPB2LijhlamkaRHnyCmvcfUDVERpOmmig/view?usp=drive_link)
 
 ## Usuario y permisos
 
